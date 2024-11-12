@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #de3131;
+  --secondary-color: #a51f36;
+  --accent-color: #ed1936;
+  --background-color: #f7f9fc;
+  --text-color: #2c3e50;
+  --card-bg: #ffffff;
+  --border-color: #b0bec5;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --border-radius: 8px;
+}
+
+body[data-theme='dark'] {
+  --primary-color: #474086;
+  --secondary-color: #9c5a33a6;
+  --accent-color: #cdbf3c;
+  --background-color: #1C1C1C;
+  --text-color: #FFFFFF;
+  --card-bg: #2A2A2A;
+  --border-color: #444444;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+}
+
+@layer base {
+  body {
+    @apply font-sans leading-relaxed transition-colors duration-300;
+    color: var(--text-color);
+    background-color: var(--background-color);
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1;
+  }
+
+  .btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    @apply hover:opacity-90;
+  }
+
+  .btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+    @apply hover:opacity-90;
+  }
+
+  .card {
+    background-color: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    @apply rounded-lg p-6 transition-transform duration-300 hover:-translate-y-2;
+  }
+
+  .section {
+    @apply py-20;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Animation classes */
+.animate-fade-up {
+  @apply opacity-0 translate-y-8;
+  animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--secondary-color);
+}
